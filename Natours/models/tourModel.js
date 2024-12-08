@@ -75,6 +75,26 @@ const tourSchema = new mongoose.Schema(
         required: [true, 'A tour must have at least one guide'],
       },
     ],
+    locations: [
+      {
+        type: {
+          type: String,
+          enum: ['Point'],
+        },
+        coordinates: [Number],
+        description: String,
+        day: Number,
+      },
+    ],
+    startLocation: {
+      type: {
+        type: String,
+        enum: ['Point'],
+      },
+      address: String,
+      description: String,
+      coordinates: [Number],
+    },
     createdAt: {
       type: Date,
       default: Date.now(),
