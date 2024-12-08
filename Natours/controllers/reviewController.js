@@ -1,7 +1,7 @@
 const catchAsync = require('./../utils/catchAsync');
 const Review = require('./../models/reviewModel');
 
-exports.getAllReviews = catchAsync(async (req, res, next) => {
+exports.getAllReviews = catchAsync(async (req, res) => {
   let filter = {};
 
   if (req.params.tourId) filter = { tour: req.params.tourId };
@@ -13,7 +13,7 @@ exports.getAllReviews = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.createReview = catchAsync(async (req, res, next) => {
+exports.createReview = catchAsync(async (req, res) => {
   if (!req.body.tour) req.body.tour = req.params.tourId;
   if (!req.body.user) req.body.user = req.user.id;
 
