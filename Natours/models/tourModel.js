@@ -75,6 +75,12 @@ const tourSchema = new mongoose.Schema(
         required: [true, 'A tour must have at least one guide'],
       },
     ],
+    reviews: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Review',
+      },
+    ],
     locations: [
       {
         type: {
@@ -114,6 +120,13 @@ const tourSchema = new mongoose.Schema(
 
 tourSchema.virtual('durationWeeks').get(function () {
   return this.duration / 7;
+});
+
+//virtual populate
+tourSchema.virtual('reviews', {
+  ref: 'Review',
+  foreignField: 'tour',
+  localField: '_id',
 });
 
 // DOCUMENT MIDDLEWARE: runs before .save() and .create()
