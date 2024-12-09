@@ -75,12 +75,6 @@ const tourSchema = new mongoose.Schema(
         required: [true, 'A tour must have at least one guide'],
       },
     ],
-    reviews: [
-      {
-        type: mongoose.Schema.ObjectId,
-        ref: 'Review',
-      },
-    ],
     locations: [
       {
         type: {
