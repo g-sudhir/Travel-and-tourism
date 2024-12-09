@@ -1,31 +1,16 @@
-exports.getAllUsers = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined!',
-  });
-};
-exports.getUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined!',
-  });
-};
+const factory = require('./../controllers/handlerController');
+const User = require('./../models/userModel');
+
 exports.createUser = (req, res) => {
   res.status(500).json({
     status: 'error',
-    message: 'This route is not yet defined!',
+    message: 'This route is not yet defined! PLease use /signup instead',
   });
 };
-exports.updateUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined!',
-  });
-};
-// exports.deleteUser = (req, res) => {
-//   res.status(500).json({
-//     status: 'error',
-//     message: 'This route is not yet defined!'
-//   });
-// };
+exports.getAllUsers = factory.getAll(User);
+
+exports.getUser = facotry.getOne(User);
+
+exports.updateUser = factory.updateOne(User);
+
 exports.deleteUser = factory.deleteOne(User);
