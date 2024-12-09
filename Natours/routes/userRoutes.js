@@ -12,7 +12,18 @@ router.route('/forgetPassword').post(authController.forgetPassword);
 
 router.route('/resetPassword/:token').patch(authController.resetPassword);
 
-router.patch('/updateMyPassword',authController.protect, authController.updatePassword);
+router.patch(
+  '/updateMyPassword',
+  authController.protect,
+  authController.updatePassword
+);
+
+router.get(
+  '/me',
+  authController.protect,
+  userController.getMe,
+  userController.getUser
+);
 
 router
   .route('/')
