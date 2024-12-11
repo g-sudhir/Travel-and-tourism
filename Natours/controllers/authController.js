@@ -25,7 +25,7 @@ const createSendToken = (user,statusCode, res) => {
   });
 }
 
-exports.forgetPassword = catchAsync(async (req, res, next) => {
+exports.forgotPassword = catchAsync(async (req, res, next) => {
   // Get user by email
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
